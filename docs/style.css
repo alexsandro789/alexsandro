@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff4d6d, #ff85a1, #ffc2d1);
+    color: white;
+    overflow: hidden;
+}
+
+/* ================= TELAS ================= */
+.tela {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* ================= CONTEÚDO ================= */
+.conteudo {
+    display: flex;
+    flex-direction: column; /* mobile */
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+/* ================= IMAGENS PADRÃO ================= */
+.tela img {
+    width: 260px;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 22px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+/* ================= TEXTO ================= */
+.texto {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 300px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* ================= BOTÃO ================= */
+.btn {
+    margin-top: 30px;
+    text-decoration: none;
+    background: white;
+    color: #ff4d6d;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+}
+
+/* ================= TELA FINAL ================= */
+.final .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+.final img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+    animation: none;
+}
+
+audio {
+    margin-top: 15px;
+    width: 100%;
+    max-width: 320px;
+}
+
+/* ================= CORAÇÕES ================= */
+.hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hearts span {
+    position: absolute;
+    bottom: -10%;
+    font-size: 22px;
+    animation: subir 10s linear infinite;
+    opacity: 0;
+}
+
+.hearts span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.hearts span:nth-child(2) { left: 30%; animation-delay: 2s; }
+.hearts span:nth-child(3) { left: 50%; animation-delay: 4s; }
+.hearts span:nth-child(4) { left: 70%; animation-delay: 1s; }
+.hearts span:nth-child(5) { left: 90%; animation-delay: 3s; }
+
+@keyframes subir {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+}
+
+/* ================= DESKTOP ================= */
+@media (min-width: 768px) {
+
+    .conteudo {
+        flex-direction: row;
+        gap: 40px;
+        text-align: left;
+    }
+
+    .tela img {
+        width: 320px;
+        height: 420px;
+    }
+
+    .texto {
+        font-size: 22px;
+        max-width: 400px;
+    }
+
+    .final .grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 700px;
+    }
+
+    audio {
+        max-width: 400px;
+    }
+}
